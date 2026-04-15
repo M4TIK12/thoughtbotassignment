@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navbar Example</title>
+
+<style>
+   * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+  background-color: rgb(31, 23, 23);
+}
+
+.hero {
+  background: linear-gradient( rgb(31, 23, 23));
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 0px 0px 65px 65px;
+}
+
+h1 {
+  font-size: 42px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #c9d1d9;
+}
+
+.subtitle a {
+  color: #f0b90b;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(31, 23, 23);
+    padding: 15px 30px;
+}
+
+.logo {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background: none;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.cta-btn {
+    background: red;
+    color: white;
+    padding: 15px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 250px;
+    font-size: 20px;
+}
+
+.cta-btn:hover {
+    background: #00a844;
+}
+
+.title {
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+    font-size: 50px;
+}
+
+.divider {
+  height: 1px;
+  background: #2f3b4a;
+  margin: 30px 0;
+}
+
+.tags {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.tags button {
+  padding: 10px 18px;
+  border-radius: 25px;
+  border: 1px solid #444;
+  background: transparent;
+  color: #ddd;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tags button:hover {
+  border-color: #f0b90b;
+}
+
+.tags .active {
+  background: #f0b90b;
+  color: black;
+  border: none;
+}
+
+.tags .more {
+  color: #f0b90b;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.post h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.desc {
+  color: #c9d1d9;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.meta {
+  font-size: 14px;
+  color: #8b949e;
+}
+
+/* SECTION BACKGROUND */
+.newsletter {
+  display: flex;
+  justify-content: center;
+  padding: 80px 20px;
+}
+
+/* CARD */
+.newsletter-box {
+  width: 100%;
+  max-width: 900px;
+  padding: 40px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+/* TITLE */
+.newsletter-box h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+/* FORM */
+.form {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+/* INPUT */
+.form input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #444;
+  padding: 12px 5px;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+.form input::placeholder {
+  color: #aaa;
+}
+
+/* BUTTON */
+.form button {
+  background: linear-gradient(45deg, #ff3b3b, #ff1a1a);
+  border: none;
+  padding: 14px 28px;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+  transition: 0.3s;
+}
+
+.form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.9);
+}
+
+/* BOTTOM TEXT */
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #2a2f3a;
+  padding-top: 20px;
+}
+
+.bottom p {
+  color: #c9d1d9;
+  font-size: 14px;
+}
+
+.bottom a {
+  color: #f0b90b;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.container1 {
+  max-width: 800px;
+  margin: 80px auto;
+  padding: 20px;
+  background-color: rgb(31, 23, 23);
+}
+
+.post1 {
+  margin-bottom: 60px;
+}
+
+.title1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.subtitle1 {
+  font-size: 16px;
+  color: #cfcfe8;
+  margin-bottom: 12px;
+}
+
+.meta1 {
+  font-size: 14px;
+  color: #b0b0c3;
+  margin-bottom: 8px;
+}
+
+.tags1 {
+  font-size: 12px;
+  color: #8c8ca8;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+
+/* Pagination */
+.pagination-v1 {
+  text-align: center;
+  padding: 20px;
+}
+
+.pagination-v1 a,
+.pagination-v1 span {
+  color: #ddd;
+  margin: 0 6px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.pagination-v1 a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+/* Footer */
+.footer-v1 {
+  padding: 60px 20px;
+}
+
+/* Container */
+.footer-container-v1 {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Logo */
+.footer-logo-v1 h2 {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+/* Links Section */
+.footer-links-v1 {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+/* Columns */
+.footer-column-v1 h4 {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.footer-column-v1 a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.footer-column-v1 a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container-v1 {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .footer-links-v1 {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.end {
+  text-align: left;
+  padding: 30px;
+  color: #555;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+.end2 {
+  text-align: right;
+  padding-bottom: 50px;
+  padding-right: 100px;
+  color: #555;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <!-- Logo -->
+    <div class="logo"><img src="Screenshot 2026-04-12 115009.png" alt="thoughtbot Logo"></div>
+
+    <!-- Dropdown Menu -->
+    <div class="nav-links">
+
+        <div class="dropdown">
+            <button class="dropbtn">
+                <a href="https://thoughtbot.com/services" target="_blank">Services</a>
+            </button>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn"> <a href="https://thoughtbot.com/industries" target="_blank">industries</a>
+            
+            </button>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn"> <a href="https://thoughtbot.com/case-studies" target="_blank">Case Studies</a>
+            
+            </button>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn"> <a href="https://thoughtbot.com/resources" target="_blank">Resources</a>
+            
+            </button>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn"> <a href="https://thoughtbot.com/blog" target="_blank">Blog</a>
+            
+            </button>
+        </div>
+
+    </div>
+
+    <!-- CTA Button -->
+    <button class="cta-btn">Let's Get Started!</button>
+
+</nav>
+ <section class="hero">
+    <div class="container">
+      <h1>Giant Robots Smashing into Other Giant Robots</h1>
+      <p class="subtitle">
+        Written by <a href="#">thoughtbot</a>, your expert partner for design and development.
+      </p>
+
+      <div class="divider"></div>
+
+      <div class="tags">
+        <button class="active">All Topics</button>
+        <button>Design</button>
+        <button>Development</button>
+        <button>Product</button>
+        <a href="#" class="more">More topics</a>
+      </div>
+
+      <div class="post">
+        <h2>AI in Focus: A new Claude Skill for Rails code audits</h2>
+        <p class="desc">
+          Learn what happened when Chad installed the open source rails-audit-thoughtbot Claude skill, ran it on thoughtbot’s decade-old internal Hub app, and walked through hits, misses, and how we’d tighten the skill over time.
+
+Chad Pytel and Kate Young  April 13, 2026
+        </p>
+        <p class="meta">Chad Pytel and Kate Young  April 13, 2026</p>
+        <p><b>Development, AI, Rails, Claude, Code Audit, Artificial Intelligence</b></p>
+      </div>
+    </div>
+    <section class="newsletter">
+  <div class="newsletter-box">
+
+    <h2>Sign up to receive a weekly recap from thoughtbot</h2>
+
+    <div class="form">
+      <input type="email" placeholder="Your email address">
+      <button>Subscribe</button>
+    </div>
+
+    <div class="bottom">
+      <p>Looking for even more ways to stay connected?</p>
+      <a href="#">Check out our feeds →</a>
+    </div>
+
+  </div>
+ 
+</section>
+  </section>
+  
+  <div class="container1">
+
+    <!-- Post 1 -->
+    <div class="post1">
+      <h1 class="title1">You, too, can make a boilerplate</h1>
+      <p class="subtitle1">
+        Adapt your own patterns and processes into a reusable piece of content.
+      </p>
+      <p class="meta1">Elaina Natario — April 10, 2026</p>
+      <p class="tags1">CSS, PROCESS</p>
+    </div>
+
+    <!-- Post 2 -->
+    <div class="post1">
+      <h1 class="title1">
+        Sixty-six commits and the commands that didn't survive
+      </h1>
+      <p class="subtitle1">
+        In week two of building a management system with Claude Code, 
+        I created fifteen commands in a day. By the end of the week, 
+        I’d deleted three of them.
+      </p>
+      <p class="meta1">Rob Whittaker — April 8, 2026</p>
+      <p class="tags1">
+        CLAUDE CODE, AI, ARTIFICIAL INTELLIGENCE, MANAGEMENT, GTD, PRODUCTIVITY
+      </p>
+    </div>
+ <div class="post1">
+      <h1 class="title1">
+        Attending and speaking at Haggis Ruby
+      </h1>
+      <p class="subtitle1">
+        thoughtbot is heading to Haggis Ruby in Glasgow on April 23-24. Come find us.
+      </p>
+      <p class="meta1">Rob Whittaker  March 31, 2026</p>
+      <p class="tags1">
+        Events, Ruby
+      </p>
+    </div>
+    <div class="post1">
+      <h1 class="title1">
+        Enhancing job reliability with Sidekiq Pro's super fetch strategy
+      </h1>
+      <p class="subtitle1">
+        Explores how the core Sidekiq fetch behavior has the potential to lead to loss of job data and how the super fetch strategy provided by Sidekiq Pro can resolve this.
+      </p>
+      <p class="meta1">Valerie Burzynski  March 30, 2026</p>
+      <p class="tags1">
+        Sidekiq, Rails
+      </p>
+    </div>
+     <div class="post1">
+      <h1 class="title1">
+        The Opinionated thoughtbotter: Bootstrap is the Superior Front-End Toolkit
+      </h1>
+      <p class="subtitle1">
+        Steve Polito makes the case for Bootstrap as the best front-end toolkit for server-rendered applications. In this episode of The Opinionated thoughtbotter, he and Svenja Schäfer debate Bootstrap vs. Tailwind, MVP speed, customization, documen…
+      </p>
+      <p class="meta1">Svenja Schäfer  March 27, 2026</p>
+      <p class="tags1">
+        Podcast
+      </p>
+    </div>
+     <div class="post1">
+      <h1 class="title1">
+        How strategic product design reduces risk before you write code
+      </h1>
+      <p class="subtitle1">
+        Common ways projects in regulated industries fail and how thoughtbot designers proactively reduce risk.
+      </p>
+      <p class="meta1">Andrew Spencer  March 27, 2026</p>
+      <p class="tags1">
+        Design Sprints, Process, AI, Design
+      </p>
+    </div>
+    <div class="post1">
+      <h1 class="title1">
+        Giant Robots Podcast Ep 606: AI layoffs are BS
+      </h1>
+      <p class="subtitle1">
+       Chad, Sami and Will bring a growing issue to the forefront as they discuss whether AI really is to blame for recent industry layoffs.
+      </p>
+      <p class="meta1">Chad Pytel, Will Larry & Sami Birnbaum  March 26, 2026</p>
+      <p class="tags1">
+        Podcast
+      </p>
+    </div>
+    <div class="post1">
+      <h1 class="title1">
+        Meet Duck Typer: your new duck typing friend
+      </h1>
+      <p class="subtitle1">
+       Keep the beauty of duck typing with no annotations while still catching missing methods, mismatched signatures, and accidental drift across classes.
+      </p>
+      <p class="meta1">Thiago Araújo Silva  March 23, 2026</p>
+      <p class="tags1">
+        RSpec, Minitest, Testing, Ruby, OOP, Development
+      </p>
+    </div>
+    <div class="post1">
+      <h1 class="title1">
+        I copied a prompt and built a management system in a week
+      </h1>
+      <p class="subtitle1">
+      How I used Claude Code to build a GTD-based management system from a borrowed idea, meeting transcripts, and three days of real work.
+      </p>
+      <p class="meta1">Rob Whittaker  March 19, 2026</p>
+      <p class="tags1">
+        Claude Code, AI, Artificial Intelligence, Management, Gtd, Productivity
+
+      </p>
+
+    </div>
+  </div>
+   <div class="divider"></div>
+  
+  <!-- Pagination -->
+  <div class="pagination-v1">
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <span>...</span>
+    <a href="#">Next »</a>
+    <a href="#">Last »</a>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer-v1">
+    
+    <div class="footer-container-v1">
+      
+      <!-- Logo -->
+      <div class="footer-logo-v1">
+        <h2><img src="Screenshot 2026-04-12 115009.png" alt=""></h2>
+      </div>
+
+      <!-- Links -->
+      <div class="footer-links-v1">
+
+        <div class="footer-column-v1">
+          <h4>Services</h4>
+          <a href="#">Case Studies</a>
+          <a href="#">Resources</a>
+          <a href="#">Let's Talk</a>
+        </div>
+
+        <div class="footer-column-v1">
+          <h4>Our Company</h4>
+          <a href="#">Careers</a>
+          <a href="#">Purpose</a>
+          <a href="#">Blog</a>
+          <a href="#">Events</a>
+          <a href="#">Sponsor</a>
+          <a href="#">Store</a>
+        </div>
+
+        <div class="footer-column-v1">
+          <h4>Social</h4>
+          <a href="#">Mastodon</a>
+          <a href="#">Bluesky</a>
+          <a href="#">GitHub</a>
+          <a href="#">YouTube</a>
+          <a href="#">Twitch</a>
+          <a href="#">Feeds</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+  <div>
+      <p class="end">
+      © 2026 thoughtbot, inc.<br>
+The design of a robot and thoughtbot are registered trademarks of<br>thoughtbot, inc.
+      </p>
+      <div>
+      <p class="end2">
+        US: +1 (877) 9-ROBOTS UK: +44 (0)20 3807 0560<br>
+Code of Conduct Accessibility Statement Privacy Policy
+      </p>
+    </div>
+    </div>
+</body>
+</html>
